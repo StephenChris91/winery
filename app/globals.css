@@ -74,3 +74,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+#carousel-container{
+  height: 500px;
+  border-radius: none;
+}
+
+button[data-testid="carousel-left-control"], button[data-testid='carousel-right-control']{
+  display: none;
+}
+#carousel-content{
+  border-radius: 0;
+}
