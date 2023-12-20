@@ -74,6 +74,17 @@
     @apply bg-background text-foreground;
   }
 }
+ul{
+  list-style: none;
+}
+
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
 
 #carousel-container{
   height: 500px;
