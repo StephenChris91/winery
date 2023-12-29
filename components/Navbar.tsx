@@ -23,7 +23,7 @@ export function Navigation() {
             </Dropdown>
         </div>
         <div className='flex'>
-          <Navbar.Link href="/login">Login</Navbar.Link>/
+          <Navbar.Link href="/login" passHref>Login</Navbar.Link>/
           <Navbar.Link href="/register">Register</Navbar.Link>
         </div>
       </div>

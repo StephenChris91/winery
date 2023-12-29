@@ -97,3 +97,8 @@ button[data-testid="carousel-left-control"], button[data-testid='carousel-right-
 #carousel-content{
   border-radius: 0;
 }
+
+#sidebar{
+  min-height: 100%;
+  background-color: transparent;
+}

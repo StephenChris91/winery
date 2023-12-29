@@ -40,8 +40,8 @@ export default function CategoryTabs() {
             </div>
         </Tabs.Item>
         <Tabs.Item title="Fort Wines">
-            <div className='flex mx-auto items-center justify-between gap-1'>
-                {[1, 2, 3, 4, 5].map(pd => (
+            <div className='grid grid-cols-4 gap-1 px-32'>
+                {[1, 2, 3, 4, 5,6].map(pd => (
                     <ProductCard />
                 ))}
             </div>

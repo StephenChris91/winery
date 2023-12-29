@@ -1,7 +1,15 @@
+import Products from '@/components/ShopProducts'
+import Side from '@/components/Sidebar'
+
+
 export default function Shop() {
     return (
-        <main className="flex min-h-screen flex-col">
-            <h1 className='text-3xl font-bold'>Shop</h1>
+        <main className="flex min-h-screen flex-col px-48">
+            {/* <h1 className='text-8xl text-center font-bold mt-12'>Shop</h1> */}
+            <div className='flex'>
+                <Side />
+                <Products />
+            </div>
         </main>
     )
 }
