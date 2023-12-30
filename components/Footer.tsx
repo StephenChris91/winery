@@ -8,7 +8,7 @@ export function FooterSection() {
     <Footer container>
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
-        <Footer.Brand href="/">
+        <Footer.Brand src='' href="/">
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">WINERY</span>
         </Footer.Brand>
           <Footer.LinkGroup>

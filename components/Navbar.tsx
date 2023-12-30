@@ -4,9 +4,22 @@
 import { Badge, Navbar, Dropdown } from 'flowbite-react';
 import { FaSearch } from 'react-icons/fa';
 import { IoCartOutline } from "react-icons/io5";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectCart } from '@/redux/features/cartSlice/cartSlice';
+import CartDropdown from './CartDropdown';
 
 
 export function Navigation() {
+
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartItems = useSelector(selectCart);
+
+  const toggleCart = () => {
+    setIsCartOpen((prev) => !prev);
+  };
+
+
   return (
     <Navbar fluid>
       <Navbar.Brand href="/">
@@ -15,15 +28,16 @@ export function Navigation() {
       <div className="flex md:order-2 gap-4">
         <div className='icons flex gap-3'>
             <Badge color='gray' icon={FaSearch} className='cursor'/>
-            {/* <Badge color='gray' icon={IoCartOutline} className='cursor text-4xl'/> */}
-            <Dropdown label="" dismissOnClick={false} renderTrigger={() => <Badge icon={IoCartOutline} color='gray'/>}>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-            </Dropdown>
+            <button 
+              onClick={toggleCart} 
+              className="text-black focus:outline-none"
+              >
+              <IoCartOutline />
+            </button>
+            {isCartOpen && <CartDropdown />}
         </div>
         <div className='flex'>
-          <Navbar.Link href="/login" passHref>Login</Navbar.Link>/
+          <Navbar.Link href="/login">Login</Navbar.Link>/
           <Navbar.Link href="/register">Register</Navbar.Link>
         </div>
       </div>

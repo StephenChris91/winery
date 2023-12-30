@@ -8,9 +8,6 @@ const Side: React.FC = () => {
   // State for the price range
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 20000]);
 
-  // State for the selected color
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-
   // Sample product tags and brands
   const tags = ['Red', 'White', 'Rosé', 'Sparkling'];
   const brands = ['Brand A', 'Brand B', 'Brand C', 'Brand D', 'Brand E'];

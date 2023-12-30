@@ -2,8 +2,29 @@
 'use client';
 
 import { Card } from 'flowbite-react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '@/redux/features/cartSlice/cartSlice';
+import { selectCart, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
 
 export default function ProductCard() {
+
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCart);
+  const handleAddToCart = () => {
+    const product = {
+      id: 'jdsakjblshdbfhbelhfkb',
+      name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
+      price: 599,
+      quantity: 1,
+      imageUrl: 'https://flowbite.com/docs/images/carousel/carousel-1.svg'
+    };
+
+    if(dispatch(addItem(product))){
+      console.log('added to cart');
+      console.log(cartItems)
+    }
+  };
+
   return (
     <Card
       className="max-w-sm"
@@ -62,12 +83,12 @@ export default function ProductCard() {
       </div>
       <div className="flex items-center justify-between">
         <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-        <a
-          href="#"
+        <button
           className="rounded-lg bg-green px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
+          onClick={handleAddToCart}
         >
           Add to cart
-        </a>
+        </button>
       </div>
     </Card>
   );

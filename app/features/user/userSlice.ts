@@ -1,7 +1,7 @@
 // features/user/userSlice.ts
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { RootState } from '../../redux/store';
 
 interface User {
   id: string;

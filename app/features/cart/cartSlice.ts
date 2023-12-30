@@ -1,7 +1,7 @@
 // features/cart/cartSlice.ts
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { RootState } from '../../redux/store';
 
 interface CartItem {
   id: string;
