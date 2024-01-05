@@ -11,6 +11,8 @@ export default function CategoryTabs() {
   const tabsRef = useRef<TabsRef>(null);
   const [activeTab, setActiveTab] = useState(0);
 
+  const id = Math.floor(Math.random() * 1000)
+
   return (
     <div className="flex flex-col mx-auto gap-5">
         <div className='description flex flex-col flex-wrap items-center'>
@@ -21,28 +23,28 @@ export default function CategoryTabs() {
         <Tabs.Item active title="Red Wines">
             <div className='flex flex-wrap mx-auto items-center justify-between gap-1'>
                     {[1, 2, 3, 4].map(pd => (
-                    <ProductCard />
+                    <ProductCard key={id}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="Sparkling Wines">
             <div className='flex flex-wrap mx-auto items-center justify-between gap-1'>
                 {[1, 2].map(pd => (
-                    <ProductCard />
+                    <ProductCard key={id}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="White Wines">
             <div className='flex flex-wrap mx-auto items-center justify-between gap-1'>
                 {[1, 2, 3].map(pd => (
-                    <ProductCard />
+                    <ProductCard key={id}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="Fort Wines">
             <div className='grid grid-cols-4 gap-1 px-32'>
                 {[1, 2, 3, 4, 5,6].map(pd => (
-                    <ProductCard />
+                    <ProductCard key={id}/>
                 ))}
             </div>
         </Tabs.Item>

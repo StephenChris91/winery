@@ -1,12 +1,12 @@
 // components/CartDropdown.tsx
 
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectCart, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
+import { useAppSelector, useAppDispatch } from '@/hooks/hooks';
+import { cartSelector, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
 
 const CartDropdown: React.FC = () => {
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCart);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(cartSelector);
 
   const handleRemoveItem = (id: string) => {
     dispatch(removeItem(id));

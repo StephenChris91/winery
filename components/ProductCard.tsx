@@ -2,27 +2,42 @@
 'use client';
 
 import { Card } from 'flowbite-react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '@/redux/features/cartSlice/cartSlice';
-import { selectCart, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+import { addItem, cartSelector, CartItem } from '@/redux/features/cartSlice/cartSlice';
+// import { selectCart, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
+import { useAppSelector, useAppDispatch } from '@/hooks/hooks';
+
+
 
 export default function ProductCard() {
 
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCart);
-  const handleAddToCart = () => {
-    const product = {
-      id: 'jdsakjblshdbfhbelhfkb',
-      name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
-      price: 599,
-      quantity: 1,
-      imageUrl: 'https://flowbite.com/docs/images/carousel/carousel-1.svg'
-    };
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(cartSelector);
 
-    if(dispatch(addItem(product))){
-      console.log('added to cart');
-      console.log(cartItems)
-    }
+  // const { state } = useAppSelector()
+
+
+  const product: CartItem = {
+    id: 'jdsakjblshdbfhbelhfkb',
+  name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
+  price: 599,
+  quantity: 1,
+  imageUrl: 'https://flowbite.com/docs/images/carousel/carousel-1.svg'
+  }
+  
+  const handleAddToCart = () => {
+
+    console.log("Adding product to cart:", product);
+
+  //  if(!product){
+  //     alert('No product Added')
+  //  }
+
+   dispatch(addItem(product))
+
+   console.log("Cart Items after dispatch:", cartItems);
+  //  console.log(state)
+
   };
 
   return (
