@@ -56,7 +56,7 @@ export default function CategoryTabs() {
 
 
   return (
-    <div className="flex flex-col mx-auto gap-5">
+    <div className="flex flex-col justify-center items-center mx-24 gap-12">
         <div className='description flex flex-col flex-wrap items-center'>
             <span className="font-medium text-red text-center  dark:text-white">Hurry up Now</span>
             <h1 className="font-bold text-gray-800 text-center text-4xl dark:text-white">Recent Products</h1>
@@ -65,28 +65,28 @@ export default function CategoryTabs() {
         <Tabs.Item active title="Red Wines">
             <div className='grid grid-cols-4 gap-2'>
                     {red?.map(pd => (
-                    <ProductCard key={pd.id} />
+                    <ProductCard key={pd.id} product={pd}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="Sparkling Wines">
             <div className='grid grid-cols-4 gap-2'>
                 {white.map(pd => (
-                    <ProductCard key={pd.id}/>
+                    <ProductCard key={pd.id} product={pd}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="White Wines">
             <div className='grid grid-cols-4 gap-2'>
                 {sparkling.map(pd => (
-                    <ProductCard key={pd.id}/>
+                    <ProductCard key={pd.id} product={pd}/>
                 ))}
             </div>
         </Tabs.Item>
         <Tabs.Item title="Fort Wines">
             <div className='grid grid-cols-4 gap-1'>
                 {fort.map(pd => (
-                    <ProductCard key={pd.id}/>
+                    <ProductCard key={pd.id} product={pd}/>
                 ))}
             </div>
         </Tabs.Item>

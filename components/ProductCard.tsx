@@ -6,12 +6,13 @@ import { Card } from 'flowbite-react';
 import { Product, addToCart, cartSelector } from '@/redux/features/cartSlice/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/hooks/hooks';
 
+interface ProductCardProps {
+  product: Product;
+}
 
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
-export default function ProductCard() {
-
-  // const [cartItems, setCartItems] = [];
-
+  const { id, name, price, quantity, imageUrl } = product;
   
   const dispatch = useAppDispatch()
 
@@ -19,7 +20,7 @@ export default function ProductCard() {
 
 
 
-  const product: Product = {
+  const newProduct: Product = {
     id: Date.now().toString(),
   name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
   price: 599,
@@ -28,7 +29,7 @@ export default function ProductCard() {
   }
   
   const handleAddToCart = async () => {
-    dispatch(addToCart(product))
+    dispatch(addToCart(newProduct))
     console.log(currentCartItems)
   }
 
@@ -36,11 +37,11 @@ export default function ProductCard() {
     <Card
       className="max-w-sm"
       imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-      imgSrc="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+      imgSrc={imageUrl}
     >
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+          {name}
         </h5>
       </a>
       <div className="mb-5 mt-2.5 flex items-center">
@@ -89,7 +90,7 @@ export default function ProductCard() {
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+        <span className="text-3xl font-bold text-gray-900 dark:text-white">${price}</span>
         <button
           className="rounded-lg bg-green px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-800 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800"
           onClick={handleAddToCart}
@@ -100,3 +101,5 @@ export default function ProductCard() {
     </Card>
   );
 }
+
+export default ProductCard
