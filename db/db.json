@@ -1,0 +1,121 @@
+{
+    "products": [
+        {
+        "createdAt": "2024-01-19T14:30:10.869Z",
+        "name": "Sleek Plastic Pants",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "695.00",
+        "category": "Red Wine",
+        "quantity": 10,
+        "id": "1"
+        },
+        {
+        "createdAt": "2024-01-19T00:11:47.822Z",
+        "name": "Small Frozen Car",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "761.00",
+        "category": "Red Wine",
+        "quantity": 10,
+        "id": "2"
+        },
+        {
+        "createdAt": "2024-01-18T22:21:20.742Z",
+        "name": "Refined Granite Car",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "966.00",
+        "category": "Red Wine",
+        "quantity": 10,
+        "id": "3"
+        },
+        {
+        "createdAt": "2024-01-19T12:58:09.669Z",
+        "name": "Licensed Concrete Computer",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "591.00",
+        "category": "White Wine",
+        "quantity": 10,
+        "id": "4"
+        },
+        {
+        "createdAt": "2024-01-19T12:45:52.626Z",
+        "name": "Generic Plastic Computer",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "832.00",
+        "category": "White Wine",
+        "quantity": 10,
+        "id": "5"
+        },
+        {
+        "createdAt": "2024-01-19T12:27:49.444Z",
+        "name": "Gorgeous Cotton Soap",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "769.00",
+        "category": "White Wine",
+        "quantity": 10,
+        "id": "6"
+        },
+        {
+        "createdAt": "2024-01-19T13:18:25.984Z",
+        "name": "Rustic Concrete Computer",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "368.00",
+        "category": "Fort Wine",
+        "quantity": 10,
+        "id": "7"
+        },
+        {
+        "createdAt": "2024-01-19T14:51:45.522Z",
+        "name": "Tasty Plastic Hat",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "659.00",
+        "category": "Fort Wine",
+        "quantity": 10,
+        "id": "8"
+        },
+        {
+        "createdAt": "2024-01-19T06:12:45.955Z",
+        "name": "Awesome Frozen Mouse",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "278.00",
+        "category": "Fort Wine",
+        "quantity": 10,
+        "id": "9"
+        },
+        {
+        "createdAt": "2024-01-19T12:57:05.373Z",
+        "name": "Sleek Steel Towels",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "159.00",
+        "category": "Sparkling Wine",
+        "quantity":10,
+        "id": "10"
+        },
+        {
+        "createdAt": "2024-01-19T06:59:56.179Z",
+        "name": "Practical Frozen Mouse",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "997.00",
+        "category": "Sparkling Wine",
+        "quantity": 10,
+        "id": "11"
+        },
+        {
+        "createdAt": "2024-01-19T14:06:25.338Z",
+        "name": "Unbranded Plastic Bike",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "21.00",
+        "category": "Sparkling Wine",
+        "quantity": 10,
+        "id": "12"
+        },
+        {
+        "createdAt": "2024-01-19T16:50:07.619Z",
+        "name": "Licensed Fresh Mouse",
+        "imageUrl": "https://loremflickr.com/640/480/food",
+        "price": "33.00",
+        "category": "Sparkling Wine",
+        "quantity": 10,
+        "id": "13"
+        }
+        ]
+}

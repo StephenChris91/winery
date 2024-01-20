@@ -1,58 +1,73 @@
-// features/cart/cartSlice.ts
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '@/redux/rootReducer';
 
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '@/redux/store';
-import {produce} from 'immer';  // <-- Import immer
-
-
-export type CartItem = {
+export type Product = {
   id: string;
   name: string;
   price: number;
-  quantity: number;
-  imageUrl?: string
+  quantity?: number;
+  imageUrl?: string;
+};
+
+export interface CartState {
+  products: Product[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: string | null;
 }
 
-const initialState: Array<CartItem> = [
-  {
-    id: '1',
-    name: 'test product',
-    price: 499,
-    quantity: 10
-  }
-];
+const initialState: CartState = {
+  products: [],
+  status: 'idle',
+  error: null,
+};
+
+// export const fetchProducts = createAsyncThunk('cart/fetchProducts', async () => {
+//   try {
+//     const response = await fetch('https://65a419bca54d8e805ed471bc.mockapi.io/api/v1/products');
+//     const data = await response.json();
+//     return data;
+//   } catch (error) {
+//     throw new Error('Error fetching products');
+//   }
+// });
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<CartItem>) => {
-      produce(state, draftState => {
-        const existingItem = draftState.find(item => item.id === action.payload.id);
-        if (existingItem) {
-          existingItem.quantity += action.payload.quantity;
-        } else {
-          draftState.push(action.payload);
-        }
-      });
+    addToCart: (state, action: PayloadAction<Product>) => {
+      state.products.push(action.payload);
     },
-    removeItem: (state, action: PayloadAction<string>) => {
-      const index = state.findIndex(item => item.id === action.payload);
-      if (index !== -1) {
-        state.splice(index, 1);
-      }
+    deleteFromCart: (state, action: PayloadAction<string>) => {
+      state.products = state.products.filter(item => item.id !== action.payload);
     },
     updateQuantity: (state, action: PayloadAction<{ id: string; quantity: number }>) => {
-      const item = state.find(item => item.id === action.payload.id);
+      const item = state.products.find(item => item.id === action.payload.id);
       if (item) {
         item.quantity = action.payload.quantity;
       }
     },
   },
+  // extraReducers: builder => {
+  //   builder
+  //     .addCase(fetchProducts.pending, state => {
+  //       state.status = 'loading';
+  //     })
+  //     .addCase(fetchProducts.fulfilled, (state, action) => {
+  //       state.status = 'succeeded';
+  //       state.products = action.payload;
+  //     })
+  //     .addCase(fetchProducts.rejected, (state, action) => {
+  //       state.status = 'failed';
+  //       state.error = action.error.message ?? 'Error fetching products';
+  //     });
+  // },
 });
 
-export const { addItem, removeItem, updateQuantity } = cartSlice.actions;
-
-export const cartSelector = (state: RootState) => state.cart;  //what does this line do?
+export const { addToCart, deleteFromCart, updateQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+export const cartSelector = (state: RootState) => state.cart.products;  // Return the entire slice
+export const cartStatusSelector = (state: RootState) => state.cart.status;
+export const cartErrorSelector = (state: RootState) => state.cart.error;

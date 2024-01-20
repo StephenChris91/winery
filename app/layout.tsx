@@ -1,7 +1,8 @@
+// 'use client'
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ClerkProvider } from '@clerk/nextjs';
 import { Navigation } from '@/components/Navbar';
 import { FooterSection } from '@/components/Footer';
 import StoreProvider from '@/redux/Provider';
@@ -19,16 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
         <html lang="en">
-            <body className={inter.className}>
-              <StoreProvider>
-                  <Navigation />
-                      {children}
-                  <FooterSection />
-              </StoreProvider>
-            </body>
+          <body className={inter.className}>
+            <StoreProvider>
+              <Navigation />
+                {children}
+              <FooterSection />
+            </StoreProvider>
+          </body>
         </html>
-      </ClerkProvider>
   )
 }

@@ -1,18 +1,21 @@
-// app/store.ts
+import { configureStore, Action } from '@reduxjs/toolkit'
+import { ThunkAction } from 'redux-thunk'
 
-import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from '@/app/features/cart/cartSlice';
-import { useSelector, TypedUseSelectorHook } from 'react-redux'
+import rootReducer, { RootState } from './rootReducer'
 
+const store = configureStore({
+  reducer: rootReducer
+})
 
+// if (process.env.NODE_ENV === 'development' && module.hot) {
+//   module.hot.accept('./rootReducer', () => {
+//     const newRootReducer = require('./rootReducer').default
+//     store.replaceReducer(newRootReducer)
+//   })
+// }
 
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+export type AppDispatch = typeof store.dispatch
 
-export const store = configureStore({
-  reducer: {
-    // our reducers goes here
-    cart: cartReducer
-  },
-});
-export type AppDispatch = typeof store.dispatch;
-export type RootState = ReturnType<typeof store.getState>;
+export type AppThunk = ThunkAction<void, RootState, null, Action<string>>
+
+export default store

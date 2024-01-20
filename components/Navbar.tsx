@@ -4,20 +4,29 @@
 import { Badge, Navbar, Dropdown } from 'flowbite-react';
 import { FaSearch } from 'react-icons/fa';
 import { IoCartOutline } from "react-icons/io5";
-import React, { useState } from 'react';
-import { useAppSelector } from '@/redux/store'
-import { selectCart } from '@/redux/features/cartSlice/cartSlice';
+import React, { useState, useEffect } from 'react';
+// import { useAppSelector } from '@/hooks/hooks'
+// import { cartSelector } from '@/redux/features/cartSlice/cartSlice';
 import CartDropdown from './CartDropdown';
 
 
 export function Navigation() {
 
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const cartItems = useAppSelector((state) => state.cart);
+  // const cartItems = useAppSelector(cartSelector);
 
   const toggleCart = () => {
     setIsCartOpen((prev) => !prev);
   };
+
+  // useEffect(() => {
+
+  //   console.log('from the navbar', cartItems);
+
+  //   return () => {
+  //     console.log('unmounted navbar')
+  //   }
+  // }, [cartItems])
 
 
   return (

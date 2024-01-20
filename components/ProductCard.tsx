@@ -1,44 +1,36 @@
 
 'use client';
-
+import { useState, useEffect } from 'react';
 import { Card } from 'flowbite-react';
 // import { useDispatch, useSelector } from 'react-redux';
-import { addItem, cartSelector, CartItem } from '@/redux/features/cartSlice/cartSlice';
-// import { selectCart, removeItem, updateQuantity } from '@/redux/features/cartSlice/cartSlice';
+import { Product, addToCart, cartSelector } from '@/redux/features/cartSlice/cartSlice';
 import { useAppSelector, useAppDispatch } from '@/hooks/hooks';
 
 
 
 export default function ProductCard() {
 
-  const dispatch = useAppDispatch();
-  const cartItems = useAppSelector(cartSelector);
+  // const [cartItems, setCartItems] = [];
 
-  // const { state } = useAppSelector()
+  
+  const dispatch = useAppDispatch()
+
+  const currentCartItems = useAppSelector(cartSelector);
 
 
-  const product: CartItem = {
-    id: 'jdsakjblshdbfhbelhfkb',
+
+  const product: Product = {
+    id: Date.now().toString(),
   name: 'Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport',
   price: 599,
   quantity: 1,
   imageUrl: 'https://flowbite.com/docs/images/carousel/carousel-1.svg'
   }
   
-  const handleAddToCart = () => {
-
-    console.log("Adding product to cart:", product);
-
-  //  if(!product){
-  //     alert('No product Added')
-  //  }
-
-   dispatch(addItem(product))
-
-   console.log("Cart Items after dispatch:", cartItems);
-  //  console.log(state)
-
-  };
+  const handleAddToCart = async () => {
+    dispatch(addToCart(product))
+    console.log(currentCartItems)
+  }
 
   return (
     <Card

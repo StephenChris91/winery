@@ -19,7 +19,7 @@ const initialState = {
 } as InitialState;
 
 
-export const auth = createSlice({
+const { reducer, actions } = createSlice({
     name: 'auth',
     initialState, 
     reducers: {
@@ -31,4 +31,6 @@ export const auth = createSlice({
         }
     }
 })
+
+export default reducer
 
